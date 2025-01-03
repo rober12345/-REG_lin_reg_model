@@ -1,16 +1,12 @@
-from utils import db_connect
-engine = db_connect()
-
 # your code here
 import sys
 import os
 
-# Add the src directory to the Python path
-sys.path.append(os.path.join(os.path.-REG_lin_reg_model(__file__), 'src'))
+# Add the parent directory of 'src' to Python's path
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-# Now import db_connect
 from utils import db_connect
 
-# Connect to the database
+# Establish database connection
 engine = db_connect()
-print("Database connection established successfully!")
+print("✅ Database connection successful!")
