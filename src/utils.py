@@ -1,18 +1,18 @@
 from dotenv import load_dotenv
 import os
 from sqlalchemy import create_engine
-import pandas as pd
+from pathlib import Path
 
-# Load the .env file variables
-load_dotenv()
-
+# Explicitly specify the .env file path
+load_dotenv(dotenv_path=Path(__file__).resolve().parent.parent / '.env')
 
 def db_connect():
-    # Retrieve the DATABASE_URL from environment variables
-    database_url = os.getenv('DATABASE_URL')
+    # Debugging output
+    print("🔍 DATABASE_URL:", os.getenv('DATABASE_URL'))
     
+    database_url = os.getenv('DATABASE_URL')
     if not database_url:
-        raise ValueError("DATABASE_URL environment variable is not set. Please check your .env file.")
+        raise ValueError("❌ DATABASE_URL environment variable is not set. Please check your .env file.")
     
     try:
         engine = create_engine(database_url)
