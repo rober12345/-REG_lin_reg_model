@@ -8,6 +8,6 @@ load_dotenv()
 
 def db_connect():
     import os
-    engine = create_engine(os.getenv('DATABASE_URL'))
+    engine = create_engine('postgresql://postgres:ManzanaOrganico1@localhost/reg_lin_reg')
     engine.connect()
     return engine
